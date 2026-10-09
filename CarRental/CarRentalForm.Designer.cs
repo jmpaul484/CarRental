@@ -168,6 +168,7 @@
             KilometersRadioButton.TabStop = true;
             KilometersRadioButton.Text = "Kilometers";
             KilometersRadioButton.UseVisualStyleBackColor = true;
+            KilometersRadioButton.CheckedChanged += KilometersRadioButton_CheckedChanged;
             // 
             // MilesRadioButton
             // 
@@ -179,6 +180,7 @@
             MilesRadioButton.TabStop = true;
             MilesRadioButton.Text = "Miles";
             MilesRadioButton.UseVisualStyleBackColor = true;
+            MilesRadioButton.CheckedChanged += MilesRadioButton_CheckedChanged;
             // 
             // DiscountsGroupBox
             // 
@@ -200,6 +202,7 @@
             SeniorCitizenDiscountCheckBox.TabIndex = 1;
             SeniorCitizenDiscountCheckBox.Text = "Senior Citizen Discount";
             SeniorCitizenDiscountCheckBox.UseVisualStyleBackColor = true;
+            SeniorCitizenDiscountCheckBox.CheckedChanged += SeniorCitizenDiscountCheckBox_CheckedChanged;
             // 
             // AAAMemberDiscountCheckBox
             // 
@@ -210,6 +213,7 @@
             AAAMemberDiscountCheckBox.TabIndex = 0;
             AAAMemberDiscountCheckBox.Text = "AAA Member Discount";
             AAAMemberDiscountCheckBox.UseVisualStyleBackColor = true;
+            AAAMemberDiscountCheckBox.CheckedChanged += AAAMemberDiscountCheckBox_CheckedChanged;
             // 
             // ClearButton
             // 
@@ -219,6 +223,7 @@
             ClearButton.TabIndex = 11;
             ClearButton.Text = "Clear";
             ClearButton.UseVisualStyleBackColor = true;
+            ClearButton.Click += ClearButton_Click;
             // 
             // SummaryButton
             // 
@@ -228,6 +233,7 @@
             SummaryButton.TabIndex = 12;
             SummaryButton.Text = "Summary";
             SummaryButton.UseVisualStyleBackColor = true;
+            SummaryButton.Click += SummaryButton_Click;
             // 
             // CalculateButton
             // 
@@ -237,6 +243,7 @@
             CalculateButton.TabIndex = 14;
             CalculateButton.Text = "Calculate";
             CalculateButton.UseVisualStyleBackColor = true;
+            CalculateButton.Click += CalculateButton_Click;
             // 
             // ExitButton
             // 
@@ -246,6 +253,7 @@
             ExitButton.TabIndex = 15;
             ExitButton.Text = "Exit";
             ExitButton.UseVisualStyleBackColor = true;
+            ExitButton.Click += ExitButton_Click;
             // 
             // DistanceDrivenInMilesTextBox
             // 
