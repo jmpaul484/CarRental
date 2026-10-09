@@ -17,10 +17,17 @@ namespace CarRental
             BeginningODRTextBox.Text = "";
             EndingODRTextBox.Text = "";
             NumberOfDaysTextBox.Text = "";
+
             MilesRadioButton.Checked = false;
             KilometersRadioButton.Checked = false;
             AAAMemberDiscountCheckBox.Checked = false;
             SeniorCitizenDiscountCheckBox.Checked = false;
+
+            DistanceDrivenInMilesTextBox.Enabled = false;
+            MileageChargeTextBox.Enabled = false;
+            DayChargeTextBox.Enabled = false;
+            MinusDiscountTextBox.Enabled = false;
+            YouOweTextBox.Enabled = false;
         }
 
         private void ExitButton_Click(object sender, EventArgs e)
