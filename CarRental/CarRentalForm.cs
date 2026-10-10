@@ -24,7 +24,7 @@ namespace CarRental
             EndingODRTextBox.Text = "";
             NumberOfDaysTextBox.Text = "";
 
-            MilesRadioButton.Checked = false;
+            MilesRadioButton.Checked = true;
             KilometersRadioButton.Checked = false;
             AAAMemberDiscountCheckBox.Checked = false;
             SeniorCitizenDiscountCheckBox.Checked = false;
