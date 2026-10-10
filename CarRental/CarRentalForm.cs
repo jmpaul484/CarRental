@@ -64,6 +64,7 @@ namespace CarRental
             try
             {
                 int.Parse(NumberOfDaysTextBox.Text);
+                NumberOfDaysTextBox
                 NumberOfDaysTextBox.BackColor = Color.White;
             }
             catch (Exception)
@@ -139,6 +140,14 @@ namespace CarRental
 
         private void CalculateButton_Click(object sender, EventArgs e)
         {
+            DistanceDrivenInMilesTextBox.Text = (EndingODR - BeginningODR).ToString();
+            
+            if(KilometersRadioButton.Checked)
+            {
+                DistanceDrivenInMilesTextBox.Text = ((EndingODR - BeginningODR) * 1.60934).ToString();
+            }
+           
+            DayChargeTextBox.Text = (NumberOfDays * 15).ToString();
 
         }
 
@@ -181,20 +190,25 @@ namespace CarRental
         private void ZipCodeTextBox_TextChanged(object sender, EventArgs e)
         {
             EvaluateInput();
+
         }
         private void BeginningODRTextBox_TextChanged(object sender, EventArgs e)
         {
             EvaluateInput();
+            BeginningODR = int.Parse(BeginningODRTextBox.Text);
         }
 
         private void EndingODRTextBox_TextChanged(object sender, EventArgs e)
         {
             EvaluateInput();
+            EndingODR = int.Parse(EndingODRTextBox.Text);
         }
 
         private void NumberOfDaysTextBox_TextChanged(object sender, EventArgs e)
         {
             EvaluateInput();
+            NumberOfDays = int.Parse(NumberOfDaysTextBox.Text);
+            
         }
 
 
