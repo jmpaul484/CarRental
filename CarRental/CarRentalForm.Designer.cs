@@ -74,6 +74,7 @@
             CoustomerNameTextBox.Name = "CoustomerNameTextBox";
             CoustomerNameTextBox.Size = new Size(150, 31);
             CoustomerNameTextBox.TabIndex = 0;
+            CoustomerNameTextBox.TextChanged += CoustomerNameTextBox_TextChanged;
             // 
             // CoustomerNameLabel
             // 
@@ -346,6 +347,7 @@
             AddressTextBox.Name = "AddressTextBox";
             AddressTextBox.Size = new Size(150, 31);
             AddressTextBox.TabIndex = 26;
+            AddressTextBox.TextChanged += AddressTextBox_TextChanged;
             // 
             // CityTextBox
             // 
@@ -353,6 +355,7 @@
             CityTextBox.Name = "CityTextBox";
             CityTextBox.Size = new Size(150, 31);
             CityTextBox.TabIndex = 27;
+            CityTextBox.TextChanged += CityTextBox_TextChanged;
             // 
             // StateTextBox
             // 
@@ -360,6 +363,7 @@
             StateTextBox.Name = "StateTextBox";
             StateTextBox.Size = new Size(150, 31);
             StateTextBox.TabIndex = 28;
+            StateTextBox.TextChanged += StateTextBox_TextChanged;
             // 
             // ZipCodeTextBox
             // 
@@ -367,6 +371,7 @@
             ZipCodeTextBox.Name = "ZipCodeTextBox";
             ZipCodeTextBox.Size = new Size(150, 31);
             ZipCodeTextBox.TabIndex = 29;
+            ZipCodeTextBox.TextChanged += ZipCodeTextBox_TextChanged;
             // 
             // BeginningODRTextBox
             // 
@@ -374,6 +379,7 @@
             BeginningODRTextBox.Name = "BeginningODRTextBox";
             BeginningODRTextBox.Size = new Size(150, 31);
             BeginningODRTextBox.TabIndex = 30;
+            BeginningODRTextBox.TextChanged += BeginningODRTextBox_TextChanged;
             // 
             // EndingODRTextBox
             // 
@@ -381,6 +387,7 @@
             EndingODRTextBox.Name = "EndingODRTextBox";
             EndingODRTextBox.Size = new Size(150, 31);
             EndingODRTextBox.TabIndex = 31;
+            EndingODRTextBox.TextChanged += EndingODRTextBox_TextChanged;
             // 
             // NumberOfDaysTextBox
             // 
@@ -388,6 +395,7 @@
             NumberOfDaysTextBox.Name = "NumberOfDaysTextBox";
             NumberOfDaysTextBox.Size = new Size(150, 31);
             NumberOfDaysTextBox.TabIndex = 32;
+            NumberOfDaysTextBox.TextChanged += NumberOfDaysTextBox_TextChanged;
             // 
             // CarRentalForm
             // 
