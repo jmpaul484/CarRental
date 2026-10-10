@@ -64,8 +64,14 @@ namespace CarRental
             try
             {
                 int.Parse(NumberOfDaysTextBox.Text);
-                NumberOfDaysTextBox
-                NumberOfDaysTextBox.BackColor = Color.White;
+                int numberOfDays = int.Parse(NumberOfDaysTextBox.Text);
+                if (numberOfDays < 1 || numberOfDays > 45)
+                {
+                    valid = false;
+                    NumberOfDaysTextBox.BackColor = Color.LightYellow;
+                }
+                else
+                    NumberOfDaysTextBox.BackColor = Color.White;
             }
             catch (Exception)
             {
@@ -207,7 +213,6 @@ namespace CarRental
         private void NumberOfDaysTextBox_TextChanged(object sender, EventArgs e)
         {
             EvaluateInput();
-            NumberOfDays = int.Parse(NumberOfDaysTextBox.Text);
             
         }
 
