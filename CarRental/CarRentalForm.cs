@@ -126,6 +126,14 @@ namespace CarRental
             {
                 StateTextBox.BackColor = Color.White;
             }
+            if (valid == false)
+            {
+                CalculateButton.Enabled = false;
+            }
+            else
+            {
+                CalculateButton.Enabled = true;
+            }
             return valid;
         }
 
@@ -201,19 +209,29 @@ namespace CarRental
         private void BeginningODRTextBox_TextChanged(object sender, EventArgs e)
         {
             EvaluateInput();
-            BeginningODR = int.Parse(BeginningODRTextBox.Text);
+            if (EvaluateInput() == true)
+            {
+                BeginningODR = int.Parse(BeginningODRTextBox.Text);
+            }
         }
 
         private void EndingODRTextBox_TextChanged(object sender, EventArgs e)
         {
             EvaluateInput();
-            EndingODR = int.Parse(EndingODRTextBox.Text);
+            if (EvaluateInput() == true)
+            {
+                EndingODR = int.Parse(EndingODRTextBox.Text);
+            }
         }
 
         private void NumberOfDaysTextBox_TextChanged(object sender, EventArgs e)
         {
             EvaluateInput();
-            
+            if (EvaluateInput() == true)
+            {
+                NumberOfDays = int.Parse(NumberOfDaysTextBox.Text);
+            }
+
         }
 
 
