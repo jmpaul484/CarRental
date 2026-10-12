@@ -47,6 +47,44 @@ namespace CarRental
             SummaryButton.Enabled = false;
         }
 
+            void Calculations()
+            {
+                DistanceDrivenInMilesTextBox.Text = (EndingODR - BeginningODR).ToString();
+
+
+                if (KilometersRadioButton.Checked)
+
+                {
+                    DistanceDrivenInMilesTextBox.Text = ((EndingODR - BeginningODR) * 1.60934).ToString();
+
+                }
+            int First200MilesCharge = 0;
+            double throughg200_500MilesCharge = ((EndingODR - BeginningODR)-200) * 0.12;
+            if (throughg200_500MilesCharge <= 0)
+            {
+                throughg200_500MilesCharge = 0;
+            }
+
+            double over500MilesCharge = (EndingODR - BeginningODR - 500) * 0.10;
+            if (over500MilesCharge <= 0)
+            {
+                over500MilesCharge = 0;
+            }
+
+            MileageChargeTextBox.Text = (First200MilesCharge + throughg200_500MilesCharge + over500MilesCharge).ToString();
+
+            DayChargeTextBox.Text = (NumberOfDays * 15).ToString();
+
+                NumberOFCustomers++;
+                TotalMilesDriven = TotalMilesDriven + Double.Parse(DistanceDrivenInMilesTextBox.Text);
+
+                if (YouOweTextBox.Text == "")
+
+                {
+                    YouOweTextBox.Text = 0.ToString();
+                }
+            SummaryButton.Enabled = true;
+            }
         bool EvaluateInput()
         {
             bool valid = true;
@@ -142,6 +180,8 @@ namespace CarRental
             }
             
             return valid;
+
+
         }
 
         private void ExitButton_Click(object sender, EventArgs e)
@@ -165,27 +205,7 @@ namespace CarRental
         {
             if (EvaluateInput() == true)
             {
-                DistanceDrivenInMilesTextBox.Text = (EndingODR - BeginningODR).ToString();
-
-
-                if (KilometersRadioButton.Checked)
-
-                {
-                   DistanceDrivenInMilesTextBox.Text = ((EndingODR - BeginningODR) * 1.60934).ToString();
-
-                }
-
-                DayChargeTextBox.Text = (NumberOfDays * 15).ToString();
-
-                NumberOFCustomers++;
-                TotalMilesDriven = TotalMilesDriven + Double.Parse(DistanceDrivenInMilesTextBox.Text);
-
-                if (YouOweTextBox.Text =="")
-                
-                {
-                    YouOweTextBox.Text = 0.ToString();
-                }
-                SummaryButton.Enabled = true;
+                Calculations();
             }
             else
             {
