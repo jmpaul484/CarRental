@@ -58,6 +58,7 @@ namespace CarRental
                     DistanceDrivenInMilesTextBox.Text = ((EndingODR - BeginningODR) * 1.60934).ToString();
 
                 }
+            // Mileage charge calculation
             int First200MilesCharge = 0;
             double throughg200_500MilesCharge = ((EndingODR - BeginningODR)-200) * 0.12;
             if (throughg200_500MilesCharge <= 0)
@@ -73,16 +74,34 @@ namespace CarRental
 
             MileageChargeTextBox.Text = (First200MilesCharge + throughg200_500MilesCharge + over500MilesCharge).ToString();
 
-            DayChargeTextBox.Text = (NumberOfDays * 15).ToString();
 
                 NumberOFCustomers++;
                 TotalMilesDriven = TotalMilesDriven + Double.Parse(DistanceDrivenInMilesTextBox.Text);
-
-                if (YouOweTextBox.Text == "")
+            // Day charge calculation
+            DayChargeTextBox.Text = (NumberOfDays * 15).ToString();
+            // Discount calculation
+            double discount = 0;
+            if (AAAMemberDiscountCheckBox.Checked)
+            {
+                discount = .05;
+            }
+            if (SeniorCitizenDiscountCheckBox.Checked)
+            {
+                discount += .03;
+            }
+            if (discount > 0)
+            {
+                discount = (Double.Parse(MileageChargeTextBox.Text) + Double.Parse(DayChargeTextBox.Text)) * discount;
+            }
+            MinusDiscountTextBox.Text = discount.ToString();
+            // Total charge calculation
+                YouOweTextBox.Text = (Double.Parse(MileageChargeTextBox.Text) + Double.Parse(DayChargeTextBox.Text) - Double.Parse(MinusDiscountTextBox.Text)).ToString();
+            if (YouOweTextBox.Text == "")
 
                 {
                     YouOweTextBox.Text = 0.ToString();
                 }
+            TotalCharge = TotalCharge + Double.Parse(YouOweTextBox.Text);
             SummaryButton.Enabled = true;
             }
         bool EvaluateInput()
