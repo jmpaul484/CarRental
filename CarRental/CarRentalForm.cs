@@ -209,27 +209,39 @@ namespace CarRental
         private void BeginningODRTextBox_TextChanged(object sender, EventArgs e)
         {
             EvaluateInput();
-            if (EvaluateInput() == true)
+            try
             {
                 BeginningODR = int.Parse(BeginningODRTextBox.Text);
+            }
+            catch
+            {
+
             }
         }
 
         private void EndingODRTextBox_TextChanged(object sender, EventArgs e)
         {
             EvaluateInput();
-            if (EvaluateInput() == true)
+            try
             {
                 EndingODR = int.Parse(EndingODRTextBox.Text);
+            }
+            catch
+            {
+
             }
         }
 
         private void NumberOfDaysTextBox_TextChanged(object sender, EventArgs e)
         {
             EvaluateInput();
-            if (EvaluateInput() == true)
+            try
             {
                 NumberOfDays = int.Parse(NumberOfDaysTextBox.Text);
+            }
+            catch
+            {
+
             }
 
         }
