@@ -5,6 +5,10 @@ namespace CarRental
         int NumberOfDays = 0;
         int BeginningODR = 0;
         int EndingODR = 0;
+        static string UserMessage = "";
+        int NumberOFCustomers = 0;
+        int TotalMilesDriven = 0;
+        int TotalCharge = 0;
 
 
         public CarRentalForm()
@@ -23,6 +27,12 @@ namespace CarRental
             BeginningODRTextBox.Text = "";
             EndingODRTextBox.Text = "";
             NumberOfDaysTextBox.Text = "";
+            DistanceDrivenInMilesTextBox.Text = "";
+            MileageChargeTextBox.Text = "";
+            DayChargeTextBox.Text = "";
+            MinusDiscountTextBox.Text = "";
+            YouOweTextBox.Text = "";
+
 
             MilesRadioButton.Checked = true;
             KilometersRadioButton.Checked = false;
@@ -34,6 +44,7 @@ namespace CarRental
             DayChargeTextBox.Enabled = false;
             MinusDiscountTextBox.Enabled = false;
             YouOweTextBox.Enabled = false;
+            SummaryButton.Enabled = false;
         }
 
         bool EvaluateInput()
@@ -48,6 +59,7 @@ namespace CarRental
             {
                 valid = false;
                 BeginningODRTextBox.BackColor = Color.LightYellow;
+                UserMessage = ("Beginning ODR must be a number less than Ending ODR.");
 
             }
             try
@@ -59,6 +71,7 @@ namespace CarRental
             {
                 valid = false;
                 EndingODRTextBox.BackColor = Color.LightYellow;
+                UserMessage = ("Ending ODR must be a number greater than Beginning ODR.");
 
             }
             try
@@ -77,6 +90,7 @@ namespace CarRental
             {
                 valid = false;
                 NumberOfDaysTextBox.BackColor = Color.LightYellow;
+                UserMessage = ("Number of days must be a number between 1 and 45.");
 
             }
             try
@@ -126,14 +140,7 @@ namespace CarRental
             {
                 StateTextBox.BackColor = Color.White;
             }
-            if (valid == false)
-            {
-                CalculateButton.Enabled = false;
-            }
-            else
-            {
-                CalculateButton.Enabled = true;
-            }
+            
             return valid;
         }
 
@@ -144,25 +151,47 @@ namespace CarRental
 
         private void SummaryButton_Click(object sender, EventArgs e)
         {
-
+            UserMessage = $"Total Customers: {NumberOFCustomers}\nTotal Miles Driven: {TotalMilesDriven}\nTotal Charge: ${TotalCharge}";
+            MessageBox.Show(UserMessage, "Summary", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         private void ClearButton_Click(object sender, EventArgs e)
         {
             Defaults();
+            SummaryButton.Enabled = true;
         }
 
         private void CalculateButton_Click(object sender, EventArgs e)
         {
-            DistanceDrivenInMilesTextBox.Text = (EndingODR - BeginningODR).ToString();
-            
-            if(KilometersRadioButton.Checked)
+            if (EvaluateInput() == true)
             {
-                DistanceDrivenInMilesTextBox.Text = ((EndingODR - BeginningODR) * 1.60934).ToString();
-            }
-           
-            DayChargeTextBox.Text = (NumberOfDays * 15).ToString();
+                DistanceDrivenInMilesTextBox.Text = (EndingODR - BeginningODR).ToString();
 
+
+                if (KilometersRadioButton.Checked)
+
+                {
+                    DistanceDrivenInMilesTextBox.Text = ((EndingODR - BeginningODR) * 1.60934).ToString();
+
+                }
+
+                DayChargeTextBox.Text = (NumberOfDays * 15).ToString();
+
+                NumberOFCustomers++;
+                TotalMilesDriven = TotalMilesDriven + int.Parse(DistanceDrivenInMilesTextBox.Text);
+
+                if (YouOweTextBox.Text =="")
+                
+                {
+                    YouOweTextBox.Text = 0.ToString();
+                }
+                SummaryButton.Enabled = true;
+            }
+            else
+            {
+                MessageBox.Show( UserMessage, "Input Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                UserMessage = "";   
+            }
         }
 
         private void MilesRadioButton_CheckedChanged(object sender, EventArgs e)
