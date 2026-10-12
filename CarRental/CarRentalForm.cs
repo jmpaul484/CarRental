@@ -7,8 +7,8 @@ namespace CarRental
         int EndingODR = 0;
         static string UserMessage = "";
         int NumberOFCustomers = 0;
-        int TotalMilesDriven = 0;
-        int TotalCharge = 0;
+        Double TotalMilesDriven = 0;
+        Double TotalCharge = 0.0;
 
 
         public CarRentalForm()
@@ -171,14 +171,14 @@ namespace CarRental
                 if (KilometersRadioButton.Checked)
 
                 {
-                    DistanceDrivenInMilesTextBox.Text = ((EndingODR - BeginningODR) * 1.60934).ToString();
+                   DistanceDrivenInMilesTextBox.Text = ((EndingODR - BeginningODR) * 1.60934).ToString();
 
                 }
 
                 DayChargeTextBox.Text = (NumberOfDays * 15).ToString();
 
                 NumberOFCustomers++;
-                TotalMilesDriven = TotalMilesDriven + int.Parse(DistanceDrivenInMilesTextBox.Text);
+                TotalMilesDriven = TotalMilesDriven + Double.Parse(DistanceDrivenInMilesTextBox.Text);
 
                 if (YouOweTextBox.Text =="")
                 
