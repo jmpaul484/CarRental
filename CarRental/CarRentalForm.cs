@@ -7,8 +7,8 @@ namespace CarRental
         int EndingODR = 0;
         static string UserMessage = "";
         int NumberOFCustomers = 0;
-        Double TotalMilesDriven = 0;
-        Double TotalCharge = 0.0;
+        Decimal TotalMilesDriven = 0;
+        Decimal TotalCharge = 0;
 
 
         public CarRentalForm()
@@ -47,7 +47,7 @@ namespace CarRental
             SummaryButton.Enabled = false;
         }
 
-            void Calculations()
+        void DistanceDriven_DayCharge()
             {
                 DistanceDrivenInMilesTextBox.Text = (EndingODR - BeginningODR).ToString();
 
@@ -60,13 +60,13 @@ namespace CarRental
                 }
             // Mileage charge calculation
             int First200MilesCharge = 0;
-            double throughg200_500MilesCharge = ((EndingODR - BeginningODR)-200) * 0.12;
+            decimal throughg200_500MilesCharge = ((EndingODR - BeginningODR) - 200) * 0.12m;
             if (throughg200_500MilesCharge <= 0)
             {
                 throughg200_500MilesCharge = 0;
             }
 
-            double over500MilesCharge = (EndingODR - BeginningODR - 500) * 0.10;
+            decimal over500MilesCharge = (EndingODR - BeginningODR - 500) * 0.10m;
             if (over500MilesCharge <= 0)
             {
                 over500MilesCharge = 0;
@@ -76,9 +76,12 @@ namespace CarRental
 
 
                 NumberOFCustomers++;
-                TotalMilesDriven = TotalMilesDriven + Double.Parse(DistanceDrivenInMilesTextBox.Text);
+                TotalMilesDriven = TotalMilesDriven + Decimal.Parse(DistanceDrivenInMilesTextBox.Text);
             // Day charge calculation
             DayChargeTextBox.Text = (NumberOfDays * 15).ToString();
+            }
+        void Discount()
+        {
             // Discount calculation
             double discount = 0;
             if (AAAMemberDiscountCheckBox.Checked)
@@ -94,16 +97,19 @@ namespace CarRental
                 discount = (Double.Parse(MileageChargeTextBox.Text) + Double.Parse(DayChargeTextBox.Text)) * discount;
             }
             MinusDiscountTextBox.Text = discount.ToString();
-            // Total charge calculation
-                YouOweTextBox.Text = (Double.Parse(MileageChargeTextBox.Text) + Double.Parse(DayChargeTextBox.Text) - Double.Parse(MinusDiscountTextBox.Text)).ToString();
+        }
+        void YouOwe()
+        {
+            // Perform calculations for you owe amount
+            YouOweTextBox.Text = (Double.Parse(MileageChargeTextBox.Text) + Double.Parse(DayChargeTextBox.Text) - Double.Parse(MinusDiscountTextBox.Text)).ToString();
             if (YouOweTextBox.Text == "")
 
-                {
-                    YouOweTextBox.Text = 0.ToString();
-                }
-            TotalCharge = TotalCharge + Double.Parse(YouOweTextBox.Text);
-            SummaryButton.Enabled = true;
+            {
+                YouOweTextBox.Text = 0.ToString();
             }
+            TotalCharge = TotalCharge + Decimal.Parse(YouOweTextBox.Text);
+            SummaryButton.Enabled = true;
+        } 
         bool EvaluateInput()
         {
             bool valid = true;
@@ -205,12 +211,15 @@ namespace CarRental
 
         private void ExitButton_Click(object sender, EventArgs e)
         {
-            Close();
+            if (MessageBox.Show("are you sure you want to exit?", "Exit", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                Close();
+            }
         }
 
         private void SummaryButton_Click(object sender, EventArgs e)
         {
-            UserMessage = $"Total Customers: {NumberOFCustomers}\nTotal Miles Driven: {TotalMilesDriven}\nTotal Charge: ${TotalCharge}";
+            UserMessage = $"Total Customers:    {NumberOFCustomers}\nTotal Miles Driven:   {TotalMilesDriven}mi\nTotal Charge:  ${TotalCharge}";
             MessageBox.Show(UserMessage, "Summary", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
@@ -224,12 +233,15 @@ namespace CarRental
         {
             if (EvaluateInput() == true)
             {
-                Calculations();
+                DistanceDriven_DayCharge();
+                Discount();
+                YouOwe();
             }
             else
             {
                 MessageBox.Show( UserMessage, "Input Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 UserMessage = "";   
+
             }
         }
 
