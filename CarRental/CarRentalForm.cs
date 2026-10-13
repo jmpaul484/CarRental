@@ -128,7 +128,14 @@ namespace CarRental
             try
             {
                 int.Parse(EndingODRTextBox.Text);
-                EndingODRTextBox.BackColor = Color.White;
+                if (int.Parse(EndingODRTextBox.Text) <= int.Parse(BeginningODRTextBox.Text))
+                {
+                    valid = false;
+                    EndingODRTextBox.BackColor = Color.LightYellow;
+                    UserMessage = ("Ending ODR must be a number greater than Beginning ODR.");
+                }
+                else
+                    EndingODRTextBox.BackColor = Color.White;
             }
             catch (Exception)
             {

@@ -155,7 +155,7 @@
             MilesKilometersGroupBox.Location = new Point(22, 326);
             MilesKilometersGroupBox.Name = "MilesKilometersGroupBox";
             MilesKilometersGroupBox.Size = new Size(493, 136);
-            MilesKilometersGroupBox.TabIndex = 9;
+            MilesKilometersGroupBox.TabIndex = 8;
             MilesKilometersGroupBox.TabStop = false;
             MilesKilometersGroupBox.Text = "Is Odometer In Miles or Killometers?";
             // 
@@ -190,7 +190,7 @@
             DiscountsGroupBox.Location = new Point(534, 326);
             DiscountsGroupBox.Name = "DiscountsGroupBox";
             DiscountsGroupBox.Size = new Size(327, 136);
-            DiscountsGroupBox.TabIndex = 10;
+            DiscountsGroupBox.TabIndex = 9;
             DiscountsGroupBox.TabStop = false;
             DiscountsGroupBox.Text = "Enter Any Discounts";
             // 
@@ -200,7 +200,7 @@
             SeniorCitizenDiscountCheckBox.Location = new Point(7, 86);
             SeniorCitizenDiscountCheckBox.Name = "SeniorCitizenDiscountCheckBox";
             SeniorCitizenDiscountCheckBox.Size = new Size(220, 29);
-            SeniorCitizenDiscountCheckBox.TabIndex = 1;
+            SeniorCitizenDiscountCheckBox.TabIndex = 2;
             SeniorCitizenDiscountCheckBox.Text = "Senior Citizen Discount";
             SeniorCitizenDiscountCheckBox.UseVisualStyleBackColor = true;
             SeniorCitizenDiscountCheckBox.CheckedChanged += SeniorCitizenDiscountCheckBox_CheckedChanged;
@@ -211,7 +211,7 @@
             AAAMemberDiscountCheckBox.Location = new Point(7, 38);
             AAAMemberDiscountCheckBox.Name = "AAAMemberDiscountCheckBox";
             AAAMemberDiscountCheckBox.Size = new Size(221, 29);
-            AAAMemberDiscountCheckBox.TabIndex = 0;
+            AAAMemberDiscountCheckBox.TabIndex = 1;
             AAAMemberDiscountCheckBox.Text = "AAA Member Discount";
             AAAMemberDiscountCheckBox.UseVisualStyleBackColor = true;
             AAAMemberDiscountCheckBox.CheckedChanged += AAAMemberDiscountCheckBox_CheckedChanged;
@@ -221,7 +221,7 @@
             ClearButton.Location = new Point(296, 500);
             ClearButton.Name = "ClearButton";
             ClearButton.Size = new Size(112, 34);
-            ClearButton.TabIndex = 11;
+            ClearButton.TabIndex = 13;
             ClearButton.Text = "Clear";
             ClearButton.UseVisualStyleBackColor = true;
             ClearButton.Click += ClearButton_Click;
@@ -231,7 +231,7 @@
             SummaryButton.Location = new Point(434, 500);
             SummaryButton.Name = "SummaryButton";
             SummaryButton.Size = new Size(112, 34);
-            SummaryButton.TabIndex = 12;
+            SummaryButton.TabIndex = 14;
             SummaryButton.Text = "Summary";
             SummaryButton.UseVisualStyleBackColor = true;
             SummaryButton.Click += SummaryButton_Click;
@@ -241,7 +241,7 @@
             CalculateButton.Location = new Point(164, 500);
             CalculateButton.Name = "CalculateButton";
             CalculateButton.Size = new Size(112, 34);
-            CalculateButton.TabIndex = 14;
+            CalculateButton.TabIndex = 12;
             CalculateButton.Text = "Calculate";
             CalculateButton.UseVisualStyleBackColor = true;
             CalculateButton.Click += CalculateButton_Click;
@@ -346,7 +346,7 @@
             AddressTextBox.Location = new Point(276, 49);
             AddressTextBox.Name = "AddressTextBox";
             AddressTextBox.Size = new Size(150, 31);
-            AddressTextBox.TabIndex = 26;
+            AddressTextBox.TabIndex = 1;
             AddressTextBox.TextChanged += AddressTextBox_TextChanged;
             // 
             // CityTextBox
@@ -354,7 +354,7 @@
             CityTextBox.Location = new Point(276, 86);
             CityTextBox.Name = "CityTextBox";
             CityTextBox.Size = new Size(150, 31);
-            CityTextBox.TabIndex = 27;
+            CityTextBox.TabIndex = 2;
             CityTextBox.TextChanged += CityTextBox_TextChanged;
             // 
             // StateTextBox
@@ -362,7 +362,7 @@
             StateTextBox.Location = new Point(276, 123);
             StateTextBox.Name = "StateTextBox";
             StateTextBox.Size = new Size(150, 31);
-            StateTextBox.TabIndex = 28;
+            StateTextBox.TabIndex = 3;
             StateTextBox.TextChanged += StateTextBox_TextChanged;
             // 
             // ZipCodeTextBox
@@ -370,7 +370,7 @@
             ZipCodeTextBox.Location = new Point(276, 160);
             ZipCodeTextBox.Name = "ZipCodeTextBox";
             ZipCodeTextBox.Size = new Size(150, 31);
-            ZipCodeTextBox.TabIndex = 29;
+            ZipCodeTextBox.TabIndex = 4;
             ZipCodeTextBox.TextChanged += ZipCodeTextBox_TextChanged;
             // 
             // BeginningODRTextBox
@@ -378,7 +378,7 @@
             BeginningODRTextBox.Location = new Point(276, 197);
             BeginningODRTextBox.Name = "BeginningODRTextBox";
             BeginningODRTextBox.Size = new Size(150, 31);
-            BeginningODRTextBox.TabIndex = 30;
+            BeginningODRTextBox.TabIndex = 5;
             BeginningODRTextBox.TextChanged += BeginningODRTextBox_TextChanged;
             // 
             // EndingODRTextBox
@@ -386,7 +386,7 @@
             EndingODRTextBox.Location = new Point(276, 234);
             EndingODRTextBox.Name = "EndingODRTextBox";
             EndingODRTextBox.Size = new Size(150, 31);
-            EndingODRTextBox.TabIndex = 31;
+            EndingODRTextBox.TabIndex = 6;
             EndingODRTextBox.TextChanged += EndingODRTextBox_TextChanged;
             // 
             // NumberOfDaysTextBox
@@ -394,7 +394,7 @@
             NumberOfDaysTextBox.Location = new Point(276, 271);
             NumberOfDaysTextBox.Name = "NumberOfDaysTextBox";
             NumberOfDaysTextBox.Size = new Size(150, 31);
-            NumberOfDaysTextBox.TabIndex = 32;
+            NumberOfDaysTextBox.TabIndex = 7;
             NumberOfDaysTextBox.TextChanged += NumberOfDaysTextBox_TextChanged;
             // 
             // CarRentalForm
