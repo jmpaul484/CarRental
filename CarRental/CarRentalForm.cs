@@ -1,3 +1,7 @@
+//Jonathan Paul
+//RCET2265  
+//Fall 2026
+//https://github.com/jmpaul484/CarRental.git
 namespace CarRental
 {
     public partial class CarRentalForm : Form
@@ -122,7 +126,7 @@ namespace CarRental
             {
                 valid = false;
                 BeginningODRTextBox.BackColor = Color.LightYellow;
-                UserMessage = ("Beginning ODR must be a number less than Ending ODR.");
+                UserMessage += ("Beginning ODR must be a number less than Ending ODR.\n");
 
             }
             try
@@ -132,7 +136,7 @@ namespace CarRental
                 {
                     valid = false;
                     EndingODRTextBox.BackColor = Color.LightYellow;
-                    UserMessage = ("Ending ODR must be a number greater than Beginning ODR.");
+                    UserMessage += ("Ending ODR must be a number greater than Beginning ODR.\n");
                 }
                 else
                     EndingODRTextBox.BackColor = Color.White;
@@ -141,7 +145,7 @@ namespace CarRental
             {
                 valid = false;
                 EndingODRTextBox.BackColor = Color.LightYellow;
-                UserMessage = ("Ending ODR must be a number greater than Beginning ODR.");
+                UserMessage += ("Ending ODR must be a number greater than Beginning ODR.\n");
 
             }
             try
@@ -160,7 +164,7 @@ namespace CarRental
             {
                 valid = false;
                 NumberOfDaysTextBox.BackColor = Color.LightYellow;
-                UserMessage = ("Number of days must be a number between 1 and 45.");
+                UserMessage += ("Number of days must be a number between 1 and 45.\n");
 
             }
             try
@@ -228,6 +232,7 @@ namespace CarRental
         {
             UserMessage = $"Total Customers:    {NumberOFCustomers}\nTotal Miles Driven:   {TotalMilesDriven}mi\nTotal Charge:  ${TotalCharge}";
             MessageBox.Show(UserMessage, "Summary", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            UserMessage = "";
         }
 
         private void ClearButton_Click(object sender, EventArgs e)
@@ -248,7 +253,6 @@ namespace CarRental
             {
                 MessageBox.Show( UserMessage, "Input Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 UserMessage = "";   
-
             }
         }
 
